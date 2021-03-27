@@ -8,15 +8,20 @@
 	display: flex;
 	justify-content: center;
 	margin: 12px;
+	flex-wrap: wrap;
 }
 
 video {
-	height: 300px;
-	width: 400px;
-	border: 1px solid #ccc;
+	height: 330px;
+	width: 450px;
+	min-height: 300px;
+	max-height: 350px;
+	border: 1px solid #85f8c3;
 	border-radius: 5px;
 	overflow: hidden;
 	object-fit: cover;
+	margin: 12px;
+	flex-wrap: wrap;
 }
 
 .main {
@@ -53,6 +58,10 @@ video {
 	display: flex;
 	justify-content: space-between;
 	padding: 5px;
+}
+
+.ActiveIcones {
+	color: #54ce6f;
 }
 
 .main__controls__block {
@@ -121,9 +130,7 @@ video {
 
 .send__button {
 	margin: 0 0 0 10px;
-
 	padding: 15px;
-	color: #d2d2d2;
 }
 .send__button:hover {
 	color: #4eb3e2;
@@ -140,4 +147,8 @@ video {
 
 b {
 	color: #a99bf7;
+}
+
+span {
+	color: #fff;
 }
