@@ -7,6 +7,7 @@ const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, {
 	debug: true
 });
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
@@ -28,9 +29,14 @@ io.on('connection', (socket) => {
 		socket.to(roomId).broadcast.emit('user-connected', userId);
 		// console.log('hello');
 
+		socket.on('disconnect', () => {
+			socket.to(roomId).broadcast.emit('user-disconnected', userId);
+		});
+
 		socket.on('message', (message) => {
 			io.to(roomId).emit('createMessage', message);
 		});
 	});
 });
-server.listen(process.env.PORT||3030);
+
+server.listen(process.env.PORT || 3030);

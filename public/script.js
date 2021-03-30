@@ -2,14 +2,18 @@ const socket = io('/');
 const videoGrid = document.getElementById('video-grid');
 const myVideo = document.createElement('video');
 myVideo.muted = true;
-// let name = prompt('Enter Your Name', <input type="text" />);
+const Peers = {};
+
 let username = window.prompt('Enter your name: ');
+// let username = 'Ranvijay';
 
 var peer = new Peer(undefined, {
 	path: '/peerjs',
 	host: '/',
 	port: '443'
 });
+
+let chat = false;
 
 let myVideoStream;
 
@@ -32,6 +36,10 @@ navigator.mediaDevices
 
 		socket.on('user-connected', (userId) => {
 			connectToNewUser(userId, stream);
+		});
+
+		socket.on('user-disconnected', (userId) => {
+			if (Peers[userId]) Peers[userId].close();
 		});
 
 		// input value
@@ -61,6 +69,11 @@ function connectToNewUser(userId, stream, username) {
 	call.on('stream', (userVideoStream) => {
 		addVideoStream(video, userVideoStream, username);
 	});
+	call.on('close', () => {
+		video.remove();
+	});
+
+	Peers[userId] = call;
 	console.log(`${username}` + userId);
 }
 
@@ -132,3 +145,16 @@ const setPlayVideo = () => {
   `;
 	document.querySelector('.main__video_button').innerHTML = html;
 };
+
+function chatToggle() {
+	chat = !chat;
+	const mainChat = document.getElementById('chatArea');
+	const mainVideoArea = document.getElementById('mainContainer');
+	if (chat === true) {
+		mainChat.setAttribute('style', ' position: relative; opacity: 1');
+		mainVideoArea.setAttribute('style', ' flex:1;');
+	} else {
+		mainChat.setAttribute('style', ' position: absolute; opacity: 0');
+		mainVideoArea.setAttribute('style', ' flex:1; ');
+	}
+}

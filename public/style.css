@@ -30,17 +30,22 @@ video {
 }
 
 .main__left {
-	flex: 0.8;
+	flex: 1;
 	display: flex;
 	flex-direction: column;
+	overflow-y: scroll;
 }
 
 .main__right {
-	flex: 0.2;
 	background-color: #242324;
 	border-left: 1px solid #3d3d42;
 	display: flex;
 	flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	opacity: 0;
 }
 
 .main__videos {
@@ -50,6 +55,16 @@ video {
 	justify-content: center;
 	align-items: center;
 	padding: 40px;
+}
+
+.main__header {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+}
+.chatClose {
+	color: #f84c4c;
+	font-size: 1.5rem;
 }
 
 .main__controls {
@@ -151,4 +166,105 @@ b {
 
 span {
 	color: #fff;
+}
+
+@media only screen and (max-width: 900px) {
+	body {
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	.main__left {
+		flex: 1;
+		height: 100vh;
+		width: 100vw;
+		background-color: #4eb3e2;
+	}
+	.main__right {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100vh;
+	}
+	video {
+		min-height: 170px;
+		min-width: 230px;
+		max-height: 260px;
+		max-width: 340px;
+		height: 100%;
+		width: 100%;
+		border: 1px solid #fff;
+		flex-wrap: wrap;
+	}
+	i,
+	span {
+		font-size: 0.68rem;
+	}
+	.leave_meeting {
+		font-size: 0.8rem;
+	}
+	.leave_meeting__button {
+		background-color: #85f8c3;
+		padding: 5px 10px;
+		border-radius: 5px;
+	}
+}
+@media only screen and (max-width: 600px) {
+	body {
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	.main__left {
+		flex: 1;
+		height: 100vh;
+		width: 100vw;
+		background-color: #4eb3e2;
+	}
+	.main__right {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		height: 100vh;
+		width: 100vw;
+	}
+	.main__controls {
+		width: 100vw;
+		overflow-x: scroll;
+		position: fixed;
+		bottom: 0;
+		z-index: 2;
+		justify-content: unset;
+		align-items: center;
+	}
+	.main__controls__block {
+		margin: 0;
+		padding: 0;
+		justify-items: flex-start;
+	}
+	video {
+		height: 100%;
+		width: 100%;
+		border: 1px solid #fff;
+		flex-wrap: wrap;
+		object-fit: cover;
+	}
+	i,
+	span {
+		font-size: 0.4rem;
+		margin: 0;
+		padding: 0;
+	}
+	.leave_meeting {
+		color: #fff;
+		font-size: 0.6rem;
+	}
+	.leave_meeting__button {
+		background-color: #fa4949;
+		padding: 5px 10px;
+		border-radius: 5px;
+	}
 }
