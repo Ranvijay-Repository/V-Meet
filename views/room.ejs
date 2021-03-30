@@ -59,7 +59,7 @@
             <span>Chat</span>
           </div>
         </div>
-        <div class="main__controls__block">
+        <div class="main__controls__block Leave">
           <div class="main__controls__button leave_meeting__button">
             <span class="leave_meeting">Leave Meeting</span>
           </div>
@@ -71,7 +71,7 @@
       <div class="main__header">
         <h6>Chat</h6>
         <div onkeypress="chatToggle()" onclick="chatToggle()" class="chatClose">
-        <i class="far fa-times-circle"></i>
+        <i id="chatClose" class="far fa-times-circle"></i>
         </div>
       </div>
       <div class="main__chat_window">
@@ -81,7 +81,7 @@
       <div class="main__message_container">
         <input id="chat_message" type="text" placeholder="Type message here..." />
         <div class="main__controls__button send__button ActiveIcones">
-          <i class="fas fa-paper-plane closeIcon"></i>
+          <i class="fas fa-paper-plane"></i>
         </div>
       </div>
     </div>

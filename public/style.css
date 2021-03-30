@@ -210,8 +210,13 @@ span {
 		padding: 5px 10px;
 		border-radius: 5px;
 	}
-	.closeIcon {
-		font-size: 1 rem;
+	#chatClose {
+		font-size: 1.5rem;
+	}
+	.Leave {
+		position: absolute;
+		top: calc(1vh);
+		right: 0;
 	}
 }
 @media only screen and (max-width: 600px) {
@@ -231,7 +236,7 @@ span {
 		opacity: 0;
 		position: absolute;
 		top: 0;
-		height: 100vh;
+		height: 95vh;
 		width: 100vw;
 	}
 	.main__controls {
@@ -240,13 +245,15 @@ span {
 		position: fixed;
 		bottom: 0;
 		z-index: 2;
-		justify-content: unset;
+		justify-content: center;
 		align-items: center;
+		margin: 0;
+		padding: 0;
 	}
 	.main__controls__block {
 		margin: 0;
 		padding: 0;
-		justify-items: flex-start;
+		justify-items: center;
 	}
 	video {
 		height: 100%;
@@ -269,5 +276,9 @@ span {
 		background-color: #fa4949;
 		padding: 5px 10px;
 		border-radius: 5px;
+	}
+	.Leave {
+		position: relative;
+		top: 0;
 	}
 }
