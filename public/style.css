@@ -210,6 +210,9 @@ span {
 		padding: 5px 10px;
 		border-radius: 5px;
 	}
+	.closeIcon {
+		font-size: 1 rem;
+	}
 }
 @media only screen and (max-width: 600px) {
 	body {
